@@ -1,9 +1,15 @@
+// src/lib/api.js
 import axios from "axios";
 
+const baseURL = import.meta.env.VITE_API_BASE_URL || "https://mern-notes-backend-j9dn.onrender.com/api";
+
+// ✅ Debug: log baseURL in console (only in development or once in production)
+if (typeof window !== "undefined") {
+  console.log("🔗 API Base URL:", baseURL);
+}
+
 const api = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_BASE_URL ||
-    "https://mern-notes-backend-j9dn.onrender.com/api",
+  baseURL,
   withCredentials: true,
 });
 
